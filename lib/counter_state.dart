@@ -1,8 +1,12 @@
 import 'package:signals/signals.dart';
 
 class CounterState {
-  final counter = Signal(
-    0,
-    debugLabel: 'counter',
-  );
+  CounterState({String? debugLabel}) {
+    counter = Signal(
+      0,
+      debugLabel: debugLabel,
+    );
+  }
+
+  late final Signal counter;
 }

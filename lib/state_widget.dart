@@ -2,8 +2,22 @@ import 'package:flutter/material.dart';
 
 /// A widget for storing state.
 ///
-/// The intended use case is to store Signals, Effects and other widgets from
-/// the Signals package.
+/// The primary purpose of this widget is to provide a convenient way to store
+/// and access state objects, such as Signals and Effects from the Signals
+/// package, within a Flutter app.
+///
+/// Example usage:
+///
+/// ```dart
+/// StateWidget<MyStateClass>(
+///   create: () => MyStateClass(),
+///   builder: (context) {
+///     // Access state object using StateWidget.of<MyStateClass>(context)
+///     final state = StateWidget.of<MyStateClass>(context);
+///     return ...
+///   },
+/// )
+/// ```
 class StateWidget<T> extends StatefulWidget {
   const StateWidget({
     super.key,
@@ -11,23 +25,31 @@ class StateWidget<T> extends StatefulWidget {
     required this.builder,
   });
 
-  /// Create a state object
+  /// Creates a state object.
   ///
-  /// This function is called once during the lifecycle of the StateWidget
+  /// This function is called once during the lifecycle of the [StateWidget] to
+  /// create the initial state object.
   final T Function() create;
 
-  /// Builder method for the child widgets
+  /// Builds the child widgets using the state object.
   ///
-  /// The StateWidget will be accessible in the context used by the builder.
-  /// https://api.flutter.dev/flutter/widgets/Builder-class.html
+  /// The [StateWidget] will be accessible in the context used by this builder.
+  /// See [Builder] for more details.
   final WidgetBuilder builder;
 
-  /// Use this method to access the state object
+  /// Retrieves the state object from the current context.
   ///
-  /// Use StateWidget.of<T> where ever you want to access properties in the state object
+  /// Use this method to access the state object created by the [StateWidget]
+  /// from anywhere in the widget tree.
+  ///
+  /// Example:
+  ///
+  /// ```dart
+  /// final state = StateWidget.of<MyStateClass>(context);
+  /// ```
   static T of<T>(BuildContext context) {
     return context
-        .findAncestorWidgetOfExactType<_StateInheritedWidget<T>>()!
+        .getInheritedWidgetOfExactType<_StateInheritedWidget<T>>()!
         .state;
   }
 
@@ -36,26 +58,17 @@ class StateWidget<T> extends StatefulWidget {
   State<StateWidget> createState() => _StateWidgetState<T>();
 }
 
-/// Private state class
 class _StateWidgetState<T> extends State<StateWidget> {
-  /// The state variable that holds the state in this StatefulWidget
+  /// The state object created by the [StateWidget].
   late final T state;
 
-  /// The default initState method that every StatefulWidget needs.
-  ///
-  /// This method is called only once during the lifetime of a StatefulWidget
   @override
   void initState() {
-    // Call super as requested in the documentation of the base class
     super.initState();
-    // Call the user supplied method to create a state object.
+    // Create the initial state object using the provided create function.
     state = widget.create();
   }
 
-  /// This method creates an InheritedWidget with a Builder as child.
-  ///
-  /// This Builder widget ensures that the InheritedWidget is in the context
-  /// supplied to the builder method.
   @override
   Widget build(BuildContext context) {
     return _StateInheritedWidget<T>(
@@ -67,7 +80,10 @@ class _StateWidgetState<T> extends State<StateWidget> {
   }
 }
 
-/// This inherited widget has an accessible state property of type T
+/// An [InheritedWidget] that provides access to the state object.
+///
+/// This widget is used internally by [StateWidget] to make the state object
+/// accessible throughout the widget tree using [StateWidget.of<T>].
 class _StateInheritedWidget<T> extends InheritedWidget {
   const _StateInheritedWidget({
     super.key,
@@ -75,11 +91,11 @@ class _StateInheritedWidget<T> extends InheritedWidget {
     required super.child,
   });
 
-  /// The state object that is created by [stateWidget]
+  /// The state object created by [StateWidget].
   final T state;
 
-  /// There will be never a need to notify the children to rebuild, because
-  /// that is the responsibility of the classes in the Signals package.
+  /// No need to notify children when the state object changes, as
+  /// this is handled by the classes in the Signals package.
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;
 }
