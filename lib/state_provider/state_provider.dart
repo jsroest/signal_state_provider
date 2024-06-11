@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 /// A widget for storing state.
 ///
@@ -9,17 +9,17 @@ import 'package:flutter/material.dart';
 /// Example usage:
 ///
 /// ```dart
-/// StateWidget<MyStateClass>(
+/// StateProvider<MyStateClass>(
 ///   create: () => MyStateClass(),
 ///   builder: (context) {
-///     // Access state object using StateWidget.of<MyStateClass>(context)
-///     final state = StateWidget.of<MyStateClass>(context);
+///     // Access state object using StateProvider.of<MyStateClass>(context)
+///     final state = StateProvider.of<MyStateClass>(context);
 ///     return ...
 ///   },
 /// )
 /// ```
-class StateWidget<T> extends StatefulWidget {
-  const StateWidget({
+class StateProvider<T> extends StatefulWidget {
+  const StateProvider({
     super.key,
     required this.create,
     required this.builder,
@@ -27,25 +27,25 @@ class StateWidget<T> extends StatefulWidget {
 
   /// Creates a state object.
   ///
-  /// This function is called once during the lifecycle of the [StateWidget] to
+  /// This function is called once during the lifecycle of the [StateProvider] to
   /// create the initial state object.
   final T Function() create;
 
   /// Builds the child widgets using the state object.
   ///
-  /// The [StateWidget] will be accessible in the context used by this builder.
+  /// The [StateProvider] will be accessible in the context used by this builder.
   /// See [Builder] for more details.
   final WidgetBuilder builder;
 
   /// Retrieves the state object from the current context.
   ///
-  /// Use this method to access the state object created by the [StateWidget]
+  /// Use this method to access the state object created by the [StateProvider]
   /// from anywhere in the widget tree.
   ///
   /// Example:
   ///
   /// ```dart
-  /// final state = StateWidget.of<MyStateClass>(context);
+  /// final state = StateProvider.of<MyStateClass>(context);
   /// ```
   static T of<T>(BuildContext context) {
     return context
@@ -55,11 +55,11 @@ class StateWidget<T> extends StatefulWidget {
 
   // Default createState method that every StatefulWidget needs
   @override
-  State<StateWidget> createState() => _StateWidgetState<T>();
+  State<StateProvider> createState() => _StateProviderState<T>();
 }
 
-class _StateWidgetState<T> extends State<StateWidget> {
-  /// The state object created by the [StateWidget].
+class _StateProviderState<T> extends State<StateProvider> {
+  /// The state object created by the [StateProvider].
   late final T state;
 
   @override
@@ -82,8 +82,8 @@ class _StateWidgetState<T> extends State<StateWidget> {
 
 /// An [InheritedWidget] that provides access to the state object.
 ///
-/// This widget is used internally by [StateWidget] to make the state object
-/// accessible throughout the widget tree using [StateWidget.of<T>].
+/// This widget is used internally by [StateProvider] to make the state object
+/// accessible throughout the widget tree using [StateProvider.of<T>].
 class _StateInheritedWidget<T> extends InheritedWidget {
   const _StateInheritedWidget({
     super.key,
@@ -91,7 +91,7 @@ class _StateInheritedWidget<T> extends InheritedWidget {
     required super.child,
   });
 
-  /// The state object created by [StateWidget].
+  /// The state object created by [StateProvider].
   final T state;
 
   /// No need to notify children when the state object changes, as

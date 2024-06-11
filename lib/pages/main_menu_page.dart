@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:poc/counter_page.dart';
-import 'package:poc/counter_state.dart';
-import 'package:poc/state_widget.dart';
+import 'package:poc/pages/counter_page.dart';
+import 'package:poc/pages/multi_counter_page.dart';
+import 'package:poc/state_provider/state_provider.dart';
+import 'package:poc/states/counter_state.dart';
 
-class MainMenu extends StatelessWidget {
-  const MainMenu({super.key});
+class MainMenuPage extends StatelessWidget {
+  const MainMenuPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +41,23 @@ class MainMenu extends StatelessWidget {
             subtitle: const Text('Local state'),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => StateWidget(
+                builder: (context) => StateProvider(
                     create: () =>
                         CounterState(debugLabel: 'Local counter state'),
                     builder: (context) {
                       return const CounterPage(
                           title: 'Counter 3, with local state');
                     }),
+              ),
+            ),
+          ),
+          ListTile(
+            title: const Text('Counter 4'),
+            subtitle: const Text('Multiple local states'),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const MultiCounterPage(
+                    title: 'Counter 4, with multiple local states'),
               ),
             ),
           )

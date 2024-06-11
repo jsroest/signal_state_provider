@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:poc/counter_state.dart';
-import 'package:poc/state_widget.dart';
+import 'package:poc/state_provider/state_provider.dart';
+import 'package:poc/states/counter_state.dart';
 import 'package:signals/signals_flutter.dart';
 
 class CounterPage extends StatelessWidget {
@@ -10,7 +10,7 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counterState = StateWidget.of<CounterState>(context);
+    final counterState = StateProvider.of<CounterState>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
