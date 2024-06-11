@@ -22,8 +22,14 @@ class StateProvider<T> extends StatefulWidget {
   const StateProvider({
     super.key,
     required this.create,
-    required this.builder,
+    this.builder,
   });
+
+  StateProvider<T> createNewWith({required WidgetBuilder builder}) =>
+      StateProvider<T>(
+        create: create,
+        builder: builder,
+      );
 
   /// Creates a state object.
   ///
@@ -35,7 +41,7 @@ class StateProvider<T> extends StatefulWidget {
   ///
   /// The [StateProvider] will be accessible in the context used by this builder.
   /// See [Builder] for more details.
-  final WidgetBuilder builder;
+  final WidgetBuilder? builder;
 
   /// Retrieves the state object from the current context.
   ///
@@ -74,7 +80,7 @@ class _StateProviderState<T> extends State<StateProvider> {
     return _StateInheritedWidget<T>(
       state: state,
       child: Builder(
-        builder: widget.builder,
+        builder: widget.builder!,
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poc/state_provider/multi_state_provider.dart';
 import 'package:poc/state_provider/state_provider.dart';
-import 'package:poc/state_provider/state_provider_builder.dart';
 import 'package:poc/states/multi_counters.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -13,13 +12,16 @@ class MultiCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiStateProvider(
-        stateProviderBuilders: [
-          StateProviderBuilder<MultiCounter1>(
-              () => MultiCounter1(debugLabel: 'multi 1')),
-          StateProviderBuilder<MultiCounter2>(
-              () => MultiCounter2(debugLabel: 'multi 2')),
-          StateProviderBuilder<MultiCounter3>(
-              () => MultiCounter3(debugLabel: 'multi 3')),
+        stateProviders: [
+          StateProvider<MultiCounter1>(
+            create: () => MultiCounter1(debugLabel: 'Local 1'),
+          ),
+          StateProvider<MultiCounter2>(
+            create: () => MultiCounter2(debugLabel: 'Local 2'),
+          ),
+          StateProvider<MultiCounter3>(
+            create: () => MultiCounter3(debugLabel: 'Local 3'),
+          ),
         ],
         builder: (context) {
           final multiCounter1 = StateProvider.of<MultiCounter1>(context);
@@ -58,16 +60,19 @@ class MultiCounterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 FloatingActionButton(
+                  heroTag: null,
                   onPressed: () => multiCounter1.counter.value++,
                   tooltip: 'Increment 1',
                   child: const Text('1'),
                 ),
                 FloatingActionButton(
+                  heroTag: null,
                   onPressed: () => multiCounter2.counter.value++,
                   tooltip: 'Increment 2',
                   child: const Text('2'),
                 ),
                 FloatingActionButton(
+                  heroTag: null,
                   onPressed: () => multiCounter3.counter.value++,
                   tooltip: 'Increment 3',
                   child: const Text(

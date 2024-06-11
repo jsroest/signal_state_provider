@@ -1,12 +1,11 @@
-import 'package:signals/signals.dart';
+import 'package:flutter/foundation.dart';
+import 'package:signals/signals_flutter.dart';
 
 class CounterState {
-  CounterState({String? debugLabel}) {
-    counter = Signal(
-      0,
-      debugLabel: debugLabel,
-    );
-  }
+  CounterState({this.debugLabel});
 
-  late final Signal counter;
+  final String? debugLabel;
+
+  late final Signal counter = Signal(0, debugLabel: debugLabel)
+    ..onDispose(() => debugPrint("I'm disposed"));
 }
