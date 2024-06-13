@@ -8,7 +8,7 @@ class CounterState implements Disposable {
   final String? debugLabel;
 
   late final Signal counter = Signal(0, debugLabel: debugLabel)
-    ..onDispose(() => debugPrint("I'm disposed"));
+    ..onDispose(() => debugPrint("disposed: ${debugLabel ?? ''}"));
 
   @override
   void dispose() {

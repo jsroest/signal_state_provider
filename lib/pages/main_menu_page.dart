@@ -42,7 +42,7 @@ class MainMenuPage extends StatelessWidget {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => StateProvider(
-                    create: () => CounterState(debugLabel: 'Local'),
+                    create: () => CounterState(debugLabel: 'Counter 3 local'),
                     builder: (context) {
                       return const CounterPage(
                           title: 'Counter 3, with local state');

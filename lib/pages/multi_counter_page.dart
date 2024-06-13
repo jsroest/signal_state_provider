@@ -14,13 +14,13 @@ class MultiCounterPage extends StatelessWidget {
     return MultiStateProvider(
         stateProviders: [
           StateProvider<MultiCounter1>(
-            create: () => MultiCounter1(debugLabel: 'Local 1'),
+            create: () => MultiCounter1(debugLabel: 'Counter 4 local 1'),
           ),
           StateProvider<MultiCounter2>(
-            create: () => MultiCounter2(debugLabel: 'Local 2'),
+            create: () => MultiCounter2(debugLabel: 'Counter 4 local 2'),
           ),
           StateProvider<MultiCounter3>(
-            create: () => MultiCounter3(debugLabel: 'Local 3'),
+            create: () => MultiCounter3(debugLabel: 'Counter 4 local 3'),
           ),
         ],
         builder: (context) {

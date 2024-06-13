@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      create: () => CounterState(debugLabel: 'Shared'),
+      create: () => CounterState(debugLabel: 'Counter 1,2 shared'),
       builder: (context) => MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
