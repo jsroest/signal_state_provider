@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:poc/state_provider/disposable.dart';
 
 /// A widget for storing state.
 ///
@@ -66,19 +67,27 @@ class StateProvider<T> extends StatefulWidget {
 
 class _StateProviderState<T> extends State<StateProvider> {
   /// The state object created by the [StateProvider].
-  late final T state;
+  late final T _state;
 
   @override
   void initState() {
     super.initState();
     // Create the initial state object using the provided create function.
-    state = widget.create();
+    _state = widget.create();
+  }
+
+  @override
+  void dispose() {
+    if (_state is Disposable) {
+      _state.dispose();
+    }
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return _StateInheritedWidget<T>(
-      state: state,
+      state: _state,
       child: Builder(
         builder: widget.builder!,
       ),
