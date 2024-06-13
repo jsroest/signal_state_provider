@@ -1,16 +1,19 @@
-# poc
 
-Work with inherited widgets
+# Simple state management solution supporting Signals
 
-## Getting Started
+The [Signals](https://pub.dev/packages/signals) package, is a way to listen to values and to rebuild the UI when the value changes.
 
-This project is a starting point for a Flutter application.
+Because rebuilding the UI is a feature of Signals itself we don't need a full fledged state management solution. The only thing we need is to be able to access Signal in a clean way.
 
-A few resources to get you started if this is your first Flutter project:
+## StateProvider
+StateProvider is a widget that accepts a create method to create an instance of a class. This instance is shared with all descending widgets with the help of an InheritedWidget. This class will not create any bindings between the caller and the provider, as that is what Signals is for.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+If the class implements the Disposable interface, it can react on the StateProvider being disposed.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## MultiStateProvider
+MultiStateProvider is a widget that accepts a list of StateProviders. The only function of this class is to prevent excessive indentation in the source code (similar to the MultiProvider in the [Provider package](https://pub.dev/packages/provider#multiprovider)).
+
+The sample shows three ways how you can use a StateProvider.
+- Shared state across pages
+- Local state in a page
+- The use of the MultiStateProvider  
