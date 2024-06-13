@@ -3,8 +3,8 @@ import 'package:poc/state_provider/state_provider.dart';
 import 'package:poc/states/counter_state.dart';
 import 'package:signals/signals_flutter.dart';
 
-class CounterPage extends StatelessWidget {
-  const CounterPage({
+class CounterPageShared extends StatelessWidget {
+  const CounterPageShared({
     super.key,
     required this.title,
     required this.subTitle,

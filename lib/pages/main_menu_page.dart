@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:poc/pages/counter_page.dart';
+import 'package:poc/pages/counter_page_local.dart';
+import 'package:poc/pages/counter_page_shared.dart';
 import 'package:poc/pages/multi_counter_page.dart';
-import 'package:poc/state_provider/state_provider.dart';
-import 'package:poc/states/counter_state.dart';
 
 class MainMenuPage extends StatelessWidget {
   const MainMenuPage({super.key});
@@ -22,7 +21,7 @@ class MainMenuPage extends StatelessWidget {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return const CounterPage(
+                  return const CounterPageShared(
                     title: 'Counter 1',
                     subTitle: 'shared',
                   );
@@ -35,7 +34,7 @@ class MainMenuPage extends StatelessWidget {
             subtitle: const Text('Shared state'),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const CounterPage(
+                builder: (context) => const CounterPageShared(
                   title: 'Counter 2',
                   subTitle: 'shared',
                 ),
@@ -47,14 +46,10 @@ class MainMenuPage extends StatelessWidget {
             subtitle: const Text('Local state'),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => StateProvider(
-                    create: () => CounterState(debugLabel: 'Counter 3 local'),
-                    builder: (context) {
-                      return const CounterPage(
-                        title: 'Counter 3',
-                        subTitle: 'local',
-                      );
-                    }),
+                builder: (context) => const CounterPageLocal(
+                  title: 'Counter 3',
+                  subTitle: 'local',
+                ),
               ),
             ),
           ),
