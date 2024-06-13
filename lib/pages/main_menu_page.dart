@@ -22,7 +22,10 @@ class MainMenuPage extends StatelessWidget {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return const CounterPage(title: 'Counter 1');
+                  return const CounterPage(
+                    title: 'Counter 1',
+                    subTitle: 'shared',
+                  );
                 },
               ),
             ),
@@ -32,7 +35,10 @@ class MainMenuPage extends StatelessWidget {
             subtitle: const Text('Shared state'),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const CounterPage(title: 'Counter 2'),
+                builder: (context) => const CounterPage(
+                  title: 'Counter 2',
+                  subTitle: 'shared',
+                ),
               ),
             ),
           ),
@@ -45,7 +51,9 @@ class MainMenuPage extends StatelessWidget {
                     create: () => CounterState(debugLabel: 'Counter 3 local'),
                     builder: (context) {
                       return const CounterPage(
-                          title: 'Counter 3, with local state');
+                        title: 'Counter 3',
+                        subTitle: 'local',
+                      );
                     }),
               ),
             ),
@@ -56,7 +64,9 @@ class MainMenuPage extends StatelessWidget {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const MultiCounterPage(
-                    title: 'Counter 4, with multiple local states'),
+                  title: 'Counter 4',
+                  subTitle: 'multiple local',
+                ),
               ),
             ),
           )

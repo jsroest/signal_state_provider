@@ -4,9 +4,14 @@ import 'package:poc/states/counter_state.dart';
 import 'package:signals/signals_flutter.dart';
 
 class CounterPage extends StatelessWidget {
-  const CounterPage({super.key, required this.title});
+  const CounterPage({
+    super.key,
+    required this.title,
+    required this.subTitle,
+  });
 
   final String title;
+  final String subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class CounterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
+        title: Text('$title $subTitle'),
       ),
       body: Center(
         child: Column(

@@ -5,9 +5,14 @@ import 'package:poc/states/multi_counters.dart';
 import 'package:signals/signals_flutter.dart';
 
 class MultiCounterPage extends StatelessWidget {
-  const MultiCounterPage({super.key, required this.title});
+  const MultiCounterPage({
+    super.key,
+    required this.title,
+    required this.subTitle,
+  });
 
   final String title;
+  final String subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,7 @@ class MultiCounterPage extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-              title: Text(title),
+              title: Text('$title $subTitle'),
             ),
             body: Center(
               child: Watch((context) {
