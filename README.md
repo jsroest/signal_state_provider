@@ -2,10 +2,10 @@
 
 The [Signals](https://pub.dev/packages/signals) package, is a way to listen to values and to rebuild the UI when the value changes.
 
-Because rebuilding the UI is a feature of Signals itself we don't need a full fledged state management solution. The only thing we need is to be able to access Signal in a clean way.
+Because rebuilding the UI is a feature of Signals itself we don't need a full fledged state management solution. The only thing we need is to be able to access signals in a clean way.
 
 ## StateProvider
-StateProvider is a widget that accepts a create method to create an instance of a class. This instance is shared with all descending widgets with the use of an InheritedWidget. This ```StateProvider.of<>``` method will not create bindings between the caller and the provider, as that is what Signals is for.
+StateProvider is a widget that accepts a create method to create an instance of a class. This instance is shared with all descending widgets with the use of an InheritedWidget. The ```StateProvider.of<>``` method will not create bindings between the caller and the provider, as that is what Signals package is for.
 ```dart  
 class CounterPageLocal extends StatelessWidget {  
   @override  
@@ -21,7 +21,7 @@ class CounterPageLocal extends StatelessWidget {
 }
 ```  
 
-If the class ```CounterState``` implements the Disposable interface, it can react on the ```StateProvider``` being disposed.
+If the class ```CounterState``` implements the Disposable interface, it can react on the ```StateProvider``` being disposed (when it no longer is a part of the widget tree).
 
 ## MultiStateProvider
 MultiStateProvider is a widget that accepts a list of StateProviders. The only function of this class is to prevent excessive indentation in the source code (similar to the MultiProvider in the [Provider package](https://pub.dev/packages/provider#multiprovider)).
