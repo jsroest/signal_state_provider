@@ -70,12 +70,14 @@ class MultiCounterPage extends StatelessWidget {
                   tooltip: 'Increment 1',
                   child: const Text('1'),
                 ),
+                const SizedBox(width: 8),
                 FloatingActionButton(
                   heroTag: null,
                   onPressed: () => multiCounter2.counter.value++,
                   tooltip: 'Increment 2',
                   child: const Text('2'),
                 ),
+                const SizedBox(width: 8),
                 FloatingActionButton(
                   heroTag: null,
                   onPressed: () => multiCounter3.counter.value++,
