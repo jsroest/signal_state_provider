@@ -10,7 +10,7 @@ class S025Counter2PageShared extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      create: () => S025Counter2Controller(
+      () => S025Counter2Controller(
         StateProvider.of<SharedCounterState>(context),
       ),
       builder: (context) {

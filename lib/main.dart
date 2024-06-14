@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poc/pages/s010_main_menu/s010_main_menu_page.dart';
 import 'package:poc/pages/s020_shared_counter/shared_counter_state.dart';
+import 'package:poc/state_provider/multi_state_provider.dart';
 import 'package:poc/state_provider/state_provider.dart';
 
 void main() {
@@ -12,8 +13,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateProvider(
-      create: () => SharedCounterState(),
+    return MultiStateProvider(
+      [
+        StateProvider<SharedCounterState>(() => SharedCounterState()),
+      ],
       builder: (context) => MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

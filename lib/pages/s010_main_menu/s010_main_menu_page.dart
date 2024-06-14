@@ -8,7 +8,7 @@ class S010MainMenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      create: () => S010MainMenuController(Navigator.of(context)),
+      () => S010MainMenuController(Navigator.of(context)),
       builder: (context) {
         final controller = StateProvider.of<S010MainMenuController>(context);
         return Scaffold(

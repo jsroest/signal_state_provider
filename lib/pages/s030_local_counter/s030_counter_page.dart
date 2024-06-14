@@ -9,7 +9,7 @@ class S030CounterPageLocal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      create: () => S030CounterController(),
+      () => S030CounterController(),
       builder: (context) {
         final controller = StateProvider.of<S030CounterController>(context);
         return Scaffold(

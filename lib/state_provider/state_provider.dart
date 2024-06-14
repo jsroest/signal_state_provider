@@ -20,9 +20,9 @@ import 'package:poc/state_provider/disposable.dart';
 /// )
 /// ```
 class StateProvider<T> extends StatefulWidget {
-  const StateProvider({
+  const StateProvider(
+    this.create, {
     super.key,
-    required this.create,
     this.builder,
   });
 
@@ -34,7 +34,7 @@ class StateProvider<T> extends StatefulWidget {
   /// specified.
   StateProvider<T> createNewWith({required WidgetBuilder builder}) =>
       StateProvider<T>(
-        create: create,
+        create,
         builder: builder,
       );
 

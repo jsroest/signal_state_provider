@@ -13,9 +13,9 @@ class MultiStateProvider extends StatelessWidget {
   ///
   /// The [builder] parameter is a [WidgetBuilder] function that is used to
   /// build the child widget.
-  const MultiStateProvider({
+  const MultiStateProvider(
+    this.stateProviders, {
     super.key,
-    required this.stateProviders,
     required this.builder,
   });
 

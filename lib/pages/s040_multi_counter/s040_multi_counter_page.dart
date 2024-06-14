@@ -9,7 +9,7 @@ class S040MultiCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      create: () => S040MultiCounterController(),
+      () => S040MultiCounterController(),
       builder: (context) {
         final controller =
             StateProvider.of<S040MultiCounterController>(context);
