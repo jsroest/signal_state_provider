@@ -26,6 +26,12 @@ class StateProvider<T> extends StatefulWidget {
     this.builder,
   });
 
+  /// Create a new StateProvider
+  ///
+  /// Create a new StateProvider based on this StateProvider, but with the
+  /// provided builder. This is used by the MultiStateProvider to create a
+  /// nested list of providers based on StateProviders with no builders
+  /// specified.
   StateProvider<T> createNewWith({required WidgetBuilder builder}) =>
       StateProvider<T>(
         create: create,
