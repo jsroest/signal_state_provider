@@ -35,7 +35,7 @@ class S020Counter1PageShared extends StatelessWidget {
             onPressed: controller.incrementCounterPressed,
             tooltip: 'Increment',
             child: const Icon(Icons.add),
-          ), // This trailing comma makes auto-formatting nicer for build methods.
+          ),
         );
       },
     );
