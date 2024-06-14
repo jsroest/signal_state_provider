@@ -11,25 +11,25 @@ class S010MainMenuController {
 
   void onTapMenuItem1() {
     navigator.push(
-      MaterialPageRoute(builder: (context) => const S020Counter1PageShared()),
+      MaterialPageRoute(builder: (_) => const S020Counter1PageShared()),
     );
   }
 
   void onTapMenuItem2() {
     navigator.push(
-      MaterialPageRoute(builder: (context) => const S025Counter2PageShared()),
+      MaterialPageRoute(builder: (_) => const S025Counter2PageShared()),
     );
   }
 
   void onTapMenuItem3() {
     navigator.push(
-      MaterialPageRoute(builder: (context) => const S030CounterPageLocal()),
+      MaterialPageRoute(builder: (_) => const S030CounterPageLocal()),
     );
   }
 
   void onTapMenuItem4() {
     navigator.push(
-      MaterialPageRoute(builder: (context) => const S040MultiCounterPage()),
+      MaterialPageRoute(builder: (_) => const S040MultiCounterPage()),
     );
   }
 }
