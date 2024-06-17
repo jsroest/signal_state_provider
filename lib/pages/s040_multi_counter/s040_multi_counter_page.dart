@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poc/pages/s040_multi_counter/s040_multi_counter_controller.dart';
-import 'package:poc/pages/widgets/watch_text.dart';
 import 'package:poc/state_provider/state_provider.dart';
+import 'package:signals/signals_flutter.dart';
 
 class S040MultiCounterPage extends StatelessWidget {
   const S040MultiCounterPage({super.key});
@@ -25,9 +25,24 @@ class S040MultiCounterPage extends StatelessWidget {
                 const Text(
                   'You have pushed the button this many times:',
                 ),
-                WatchText(controller.counter1),
-                WatchText(controller.counter2),
-                WatchText(controller.counter3),
+                Watch(
+                  (context) => Text(
+                    '${controller.counter1.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ),
+                Watch(
+                  (context) => Text(
+                    '${controller.counter2.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ),
+                Watch(
+                  (context) => Text(
+                    '${controller.counter3.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ),
               ],
             ),
           ),

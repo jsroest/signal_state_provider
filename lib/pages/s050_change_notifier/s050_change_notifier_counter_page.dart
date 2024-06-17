@@ -26,15 +26,24 @@ class S050ChangeNotifierCounterPage extends StatelessWidget {
                 ),
                 ListenableBuilder(
                   listenable: controller,
-                  builder: (context, _) => Text('${controller.counter1.value}'),
+                  builder: (context, _) => Text(
+                    '${controller.counter1.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                 ),
                 ListenableBuilder(
                   listenable: controller,
-                  builder: (context, _) => Text('${controller.counter2.value}'),
+                  builder: (context, _) => Text(
+                    '${controller.counter2.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                 ),
                 ListenableBuilder(
                   listenable: controller,
-                  builder: (context, _) => Text('${controller.counter3.value}'),
+                  builder: (context, _) => Text(
+                    '${controller.counter3.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                 ),
               ],
             ),
