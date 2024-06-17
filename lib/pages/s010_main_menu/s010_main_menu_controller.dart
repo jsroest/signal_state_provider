@@ -3,7 +3,6 @@ import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_1_page
 import 'package:poc/pages/s020_shared_counter/s025_counter_2/s025_counter_2_page.dart';
 import 'package:poc/pages/s030_local_counter/s030_counter_page.dart';
 import 'package:poc/pages/s040_multi_counter/s040_multi_counter_page.dart';
-import 'package:poc/pages/s050_change_notifier/s050_change_notifier_counter_page.dart';
 import 'package:poc/pages/s050_change_notifier_counter/s050_change_notifier_counter_page.dart';
 
 class S010MainMenuController {
