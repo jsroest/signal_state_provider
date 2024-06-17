@@ -39,4 +39,22 @@ class S010MainMenuController {
       MaterialPageRoute(builder: (_) => const S050ChangeNotifierCounterPage()),
     );
   }
+
+  void onTapMenuItem6() {
+    navigator.push(
+      MaterialPageRoute(builder: (_) => const S060ChangeNotifiersCounterPage()),
+    );
+  }
+
+  void onTapMenuItem7() {
+    navigator.push(
+      MaterialPageRoute(builder: (_) => const S070PropertyBuilderCounterPage()),
+    );
+  }
+
+  void onTapMenuItem8() {
+    navigator.push(
+      MaterialPageRoute(builder: (_) => const S080WatchCounterPage()),
+    );
+  }
 }
