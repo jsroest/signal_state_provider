@@ -13,8 +13,7 @@ class S020Counter1PageShared extends StatelessWidget {
       () => S020Counter1Controller(
         StateProvider.of<SharedCounterState>(context),
       ),
-      builder: (context) {
-        final controller = StateProvider.of<S020Counter1Controller>(context);
+      builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -29,7 +28,7 @@ class S020Counter1PageShared extends StatelessWidget {
                 ),
                 Watch(
                   (context) => Text(
-                    '${controller.sharedCounterState.counter.value}',
+                    '${state.sharedCounterState.counter.value}',
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
@@ -37,7 +36,7 @@ class S020Counter1PageShared extends StatelessWidget {
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: controller.incrementCounterPressed,
+            onPressed: state.incrementCounterPressed,
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),

@@ -9,9 +9,7 @@ class S060ChangeNotifiersCounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateProvider(
       () => S060ChangeNotifiersCounterController(),
-      builder: (context) {
-        final controller =
-            StateProvider.of<S060ChangeNotifiersCounterController>(context);
+      builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -25,23 +23,23 @@ class S060ChangeNotifiersCounterPage extends StatelessWidget {
                   'You have pushed the button this many times:',
                 ),
                 ListenableBuilder(
-                  listenable: controller.counter1,
+                  listenable: state.counter1,
                   builder: (context, _) => Text(
-                    '${controller.counter1.value}',
+                    '${state.counter1.value}',
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 ListenableBuilder(
-                  listenable: controller.counter2,
+                  listenable: state.counter2,
                   builder: (context, _) => Text(
-                    '${controller.counter2.value}',
+                    '${state.counter2.value}',
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 ListenableBuilder(
-                  listenable: controller.counter3,
+                  listenable: state.counter3,
                   builder: (context, _) => Text(
-                    '${controller.counter3.value}',
+                    '${state.counter3.value}',
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
@@ -53,21 +51,21 @@ class S060ChangeNotifiersCounterPage extends StatelessWidget {
             children: [
               FloatingActionButton(
                 heroTag: null,
-                onPressed: controller.incrementCounter1Pressed,
+                onPressed: state.incrementCounter1Pressed,
                 tooltip: 'Increment 1',
                 child: const Text('1'),
               ),
               const SizedBox(width: 8),
               FloatingActionButton(
                 heroTag: null,
-                onPressed: controller.incrementCounter2Pressed,
+                onPressed: state.incrementCounter2Pressed,
                 tooltip: 'Increment 2',
                 child: const Text('2'),
               ),
               const SizedBox(width: 8),
               FloatingActionButton(
                 heroTag: null,
-                onPressed: controller.incrementCounter3Pressed,
+                onPressed: state.incrementCounter3Pressed,
                 tooltip: 'Increment 3',
                 child: const Text('3'),
               ),

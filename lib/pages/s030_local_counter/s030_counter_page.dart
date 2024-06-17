@@ -10,8 +10,7 @@ class S030CounterPageLocal extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateProvider(
       () => S030CounterController(),
-      builder: (context) {
-        final controller = StateProvider.of<S030CounterController>(context);
+      builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -26,7 +25,7 @@ class S030CounterPageLocal extends StatelessWidget {
                 ),
                 Watch(
                   (context) => Text(
-                    '${controller.counter.value}',
+                    '${state.counter.value}',
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
@@ -34,7 +33,7 @@ class S030CounterPageLocal extends StatelessWidget {
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: controller.incrementCounterPressed,
+            onPressed: state.incrementCounterPressed,
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),
