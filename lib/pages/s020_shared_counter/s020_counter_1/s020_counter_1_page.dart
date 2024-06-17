@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_1_controller.dart';
 import 'package:poc/pages/s020_shared_counter/shared_counter_state.dart';
 import 'package:poc/state_provider/state_provider.dart';
+import 'package:signals/signals_flutter.dart';
 
 class S020Counter1PageShared extends StatelessWidget {
   const S020Counter1PageShared({super.key});
@@ -26,9 +27,11 @@ class S020Counter1PageShared extends StatelessWidget {
                 const Text(
                   'You have pushed the button this many times:',
                 ),
-                Text(
-                  '${controller.sharedCounterState.counter.value}',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                Watch(
+                  (context) => Text(
+                    '${controller.sharedCounterState.counter.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                 ),
               ],
             ),

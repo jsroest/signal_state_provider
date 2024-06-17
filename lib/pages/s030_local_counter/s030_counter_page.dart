@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poc/pages/s030_local_counter/s030_counter_controller.dart';
 import 'package:poc/state_provider/state_provider.dart';
+import 'package:signals/signals_flutter.dart';
 
 class S030CounterPageLocal extends StatelessWidget {
   const S030CounterPageLocal({super.key});
@@ -23,9 +24,11 @@ class S030CounterPageLocal extends StatelessWidget {
                 const Text(
                   'You have pushed the button this many times:',
                 ),
-                Text(
-                  '${controller.counter.value}',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                Watch(
+                  (context) => Text(
+                    '${controller.counter.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                 ),
               ],
             ),
