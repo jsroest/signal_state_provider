@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poc/pages/s050_change_notifier/s050_change_notifier_counter_controller.dart';
+import 'package:poc/pages/s050_change_notifier_counter/s050_change_notifier_counter_controller.dart';
 import 'package:poc/state_provider/state_provider.dart';
 
 class S050ChangeNotifierCounterPage extends StatelessWidget {

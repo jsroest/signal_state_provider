@@ -43,6 +43,21 @@ class S010MainMenuPage extends StatelessWidget {
                 subtitle: const Text('ChangeNotifier'),
                 onTap: controller.onTapMenuItem5,
               ),
+              ListTile(
+                title: const Text('Counter 6'),
+                subtitle: const Text('ChangeNotifiers'),
+                onTap: controller.onTapMenuItem6,
+              ),
+              ListTile(
+                title: const Text('Counter 7'),
+                subtitle: const Text('PropertyBuilder'),
+                onTap: controller.onTapMenuItem7,
+              ),
+              ListTile(
+                title: const Text('Counter 8'),
+                subtitle: const Text('PropertyBuilder'),
+                onTap: controller.onTapMenuItem8,
+              ),
             ],
           ),
         );
