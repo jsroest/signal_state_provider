@@ -50,7 +50,7 @@ class StateProvider<T> extends StatefulWidget {
   ///
   /// The [StateProvider] will be accessible in the context used by this builder.
   /// See [Builder] for more details.
-  final StateBuilder? builder;
+  final StateBuilder<T>? builder;
 
   /// Retrieves the state object from the current context.
   ///
