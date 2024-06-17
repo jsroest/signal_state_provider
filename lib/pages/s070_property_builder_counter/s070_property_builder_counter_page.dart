@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poc/pages/s070_property_builder/s070_property_builder_counter_controller.dart';
+import 'package:poc/pages/s070_property_builder_counter/s070_property_builder_counter_controller.dart';
 import 'package:poc/property_builder/property_builder.dart';
 import 'package:poc/state_provider/state_provider.dart';
 
