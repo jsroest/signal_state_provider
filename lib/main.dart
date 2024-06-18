@@ -21,10 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiStateProvider(
       [
-        StateProvider<SharedCounterState>((context) => SharedCounterState()),
+        StateProvider<SharedCounterState>((_) => SharedCounterState()),
         StateProvider<S010MainMenuController>(
-          (context) => S010MainMenuController(getNavigator),
-        ),
+            (_) => S010MainMenuController(getNavigator)),
         StateProvider<S020Counter1Controller>(
           (context) => S020Counter1Controller(
             StateProvider.of<SharedCounterState>(context),
