@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:poc/state_provider/disposable.dart';
+import 'package:poc/state_provider/state_builder.dart';
 
 /// A widget for storing state.
 ///
@@ -33,7 +34,7 @@ class StateProvider<T> extends StatefulWidget {
   /// nested list of providers based on StateProviders with no builders
   /// specified.
   StateProvider<T> createNewWith({
-    required WidgetBuilder builder,
+    required StateBuilderCallBack builder,
   }) =>
       StateProvider<T>(
         create,
@@ -50,7 +51,7 @@ class StateProvider<T> extends StatefulWidget {
   ///
   /// The [StateProvider] will be accessible in the context used by this builder.
   /// See [Builder] for more details.
-  final Widget Function(BuildContext context)? builder;
+  final StateBuilderCallBack? builder;
 
   /// Retrieves the state object from the current context.
   ///
@@ -96,7 +97,8 @@ class _StateProviderState<T> extends State<StateProvider> {
   Widget build(BuildContext context) {
     return _StateInheritedWidget<T>(
       state: _state,
-      child: Builder(
+      child: StateBuilder(
+        data: _state,
         builder: widget.builder!,
       ),
     );

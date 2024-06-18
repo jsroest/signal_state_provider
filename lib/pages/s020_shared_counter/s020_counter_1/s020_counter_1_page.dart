@@ -13,7 +13,7 @@ class S020Counter1PageShared extends StatelessWidget {
       (context) => S020Counter1Controller(
         StateProvider.of<SharedCounterState>(context),
       ),
-      builder: (context) {
+      builder: (context, data) {
         final state = StateProvider.of<S020Counter1Controller>(context);
         return Scaffold(
           appBar: AppBar(
