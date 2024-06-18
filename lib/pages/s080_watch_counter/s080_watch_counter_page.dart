@@ -9,8 +9,9 @@ class S080WatchCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      () => S080WatchCounterController(),
-      builder: (context, state) {
+      (context) => S080WatchCounterController(),
+      builder: (context) {
+        final state = StateProvider.of<S080WatchCounterController>(context);
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,

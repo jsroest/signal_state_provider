@@ -9,8 +9,10 @@ class S070PropertyBuilderCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      () => S070PropertyBuilderCounterController(),
-      builder: (context, state) {
+      (context) => S070PropertyBuilderCounterController(),
+      builder: (context) {
+        final state =
+            StateProvider.of<S070PropertyBuilderCounterController>(context);
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,

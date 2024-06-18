@@ -36,13 +36,13 @@ class MultiStateProvider extends StatelessWidget {
         /// If [current] is null, create a new instance of the [StateProvider]
         /// using the [builder] function.
         current = stateProvider.createNewWith(
-          builder: (context, state) => builder(context),
+          builder: builder,
         );
       } else {
         /// If [current] is not null, create a new instance of the [StateProvider]
         /// with the [current] widget as its child.
         final child = current;
-        current = stateProvider.createNewWith(builder: (context, _) => child);
+        current = stateProvider.createNewWith(builder: (context) => child);
       }
     }
 

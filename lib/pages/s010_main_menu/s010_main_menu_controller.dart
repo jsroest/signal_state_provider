@@ -9,54 +9,54 @@ import 'package:poc/pages/s070_property_builder_counter/s070_property_builder_co
 import 'package:poc/pages/s080_watch_counter/s080_watch_counter_page.dart';
 
 class S010MainMenuController {
-  S010MainMenuController(this.navigator);
+  S010MainMenuController(this.getNavigator);
 
-  final NavigatorState navigator;
+  final NavigatorState Function() getNavigator;
 
   void onTapMenuItem1() {
-    navigator.push(
+    getNavigator().push(
       MaterialPageRoute(builder: (_) => const S020Counter1PageShared()),
     );
   }
 
   void onTapMenuItem2() {
-    navigator.push(
+    getNavigator().push(
       MaterialPageRoute(builder: (_) => const S025Counter2PageShared()),
     );
   }
 
   void onTapMenuItem3() {
-    navigator.push(
+    getNavigator().push(
       MaterialPageRoute(builder: (_) => const S030CounterPageLocal()),
     );
   }
 
   void onTapMenuItem4() {
-    navigator.push(
+    getNavigator().push(
       MaterialPageRoute(builder: (_) => const S040MultiCounterPage()),
     );
   }
 
   void onTapMenuItem5() {
-    navigator.push(
+    getNavigator().push(
       MaterialPageRoute(builder: (_) => const S050ChangeNotifierCounterPage()),
     );
   }
 
   void onTapMenuItem6() {
-    navigator.push(
+    getNavigator().push(
       MaterialPageRoute(builder: (_) => const S060ChangeNotifiersCounterPage()),
     );
   }
 
   void onTapMenuItem7() {
-    navigator.push(
+    getNavigator().push(
       MaterialPageRoute(builder: (_) => const S070PropertyBuilderCounterPage()),
     );
   }
 
   void onTapMenuItem8() {
-    navigator.push(
+    getNavigator().push(
       MaterialPageRoute(builder: (_) => const S080WatchCounterPage()),
     );
   }

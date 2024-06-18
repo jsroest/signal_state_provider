@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:poc/state_provider/disposable.dart';
 
-typedef StateBuilder<T> = Widget Function(BuildContext context, T state);
-
 /// A widget for storing state.
 ///
 /// The primary purpose of this widget is to provide a convenient way to store
@@ -34,7 +32,9 @@ class StateProvider<T> extends StatefulWidget {
   /// provided builder. This is used by the MultiStateProvider to create a
   /// nested list of providers based on StateProviders with no builders
   /// specified.
-  StateProvider<T> createNewWith({required StateBuilder builder}) =>
+  StateProvider<T> createNewWith({
+    required WidgetBuilder builder,
+  }) =>
       StateProvider<T>(
         create,
         builder: builder,
@@ -44,13 +44,13 @@ class StateProvider<T> extends StatefulWidget {
   ///
   /// This function is called once during the lifecycle of the [StateProvider] to
   /// create the initial state object.
-  final T Function() create;
+  final T Function(BuildContext context) create;
 
   /// Builds the child widgets using the state object.
   ///
   /// The [StateProvider] will be accessible in the context used by this builder.
   /// See [Builder] for more details.
-  final StateBuilder<T>? builder;
+  final Widget Function(BuildContext context)? builder;
 
   /// Retrieves the state object from the current context.
   ///
@@ -68,7 +68,7 @@ class StateProvider<T> extends StatefulWidget {
         .state;
   }
 
-  // Default createState method that every StatefulWidget needs
+// Default createState method that every StatefulWidget needs
   @override
   State<StateProvider> createState() => _StateProviderState<T>();
 }
@@ -80,8 +80,8 @@ class _StateProviderState<T> extends State<StateProvider> {
   @override
   void initState() {
     super.initState();
-    // Create the initial state object using the provided create function.
-    _state = widget.create();
+// Create the initial state object using the provided create function.
+    _state = widget.create(context);
   }
 
   @override
@@ -97,7 +97,7 @@ class _StateProviderState<T> extends State<StateProvider> {
     return _StateInheritedWidget<T>(
       state: _state,
       child: Builder(
-        builder: (context) => widget.builder!(context, _state),
+        builder: widget.builder!,
       ),
     );
   }

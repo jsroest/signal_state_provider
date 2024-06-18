@@ -9,8 +9,9 @@ class S030CounterPageLocal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      () => S030CounterController(),
-      builder: (context, state) {
+      (context) => S030CounterController(),
+      builder: (context) {
+        final state = StateProvider.of<S030CounterController>(context);
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,

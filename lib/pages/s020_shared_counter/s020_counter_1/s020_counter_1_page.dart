@@ -10,10 +10,11 @@ class S020Counter1PageShared extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      () => S020Counter1Controller(
+      (context) => S020Counter1Controller(
         StateProvider.of<SharedCounterState>(context),
       ),
-      builder: (context, state) {
+      builder: (context) {
+        final state = StateProvider.of<S020Counter1Controller>(context);
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,

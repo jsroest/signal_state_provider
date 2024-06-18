@@ -8,8 +8,10 @@ class S050ChangeNotifierCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      () => S050ChangeNotifierCounterController(),
-      builder: (context, state) {
+      (context) => S050ChangeNotifierCounterController(),
+      builder: (context) {
+        final state =
+            StateProvider.of<S050ChangeNotifierCounterController>(context);
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
