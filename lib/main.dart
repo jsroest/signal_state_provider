@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:poc/pages/s010_main_menu/s010_main_menu_controller.dart';
 import 'package:poc/pages/s010_main_menu/s010_main_menu_page.dart';
 import 'package:poc/pages/s020_shared_counter/shared_counter_state.dart';
+import 'package:poc/services/navigator_service.dart';
 import 'package:poc/state_provider/nested.dart';
 import 'package:poc/state_provider/state_provider.dart';
 
@@ -10,18 +11,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  NavigatorState getNavigator() => navigatorKey.currentState!;
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Nested(
       children: [
+        StateProvider((_) => NavigatorService(navigatorKey)),
         StateProvider((_) => SharedCounterState()),
-        StateProvider((_) => S010MainMenuController(getNavigator))
+        StateProvider(
+          (context) => S010MainMenuController(
+            StateProvider.of<NavigatorService>(context),
+          ),
+        )
       ],
       child: MaterialApp(
         navigatorKey: navigatorKey,

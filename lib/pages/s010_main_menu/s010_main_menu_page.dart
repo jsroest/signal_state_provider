@@ -7,7 +7,7 @@ class S010MainMenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = StateProvider.of<S010MainMenuController>(context);
+    final controller = StateProvider.of<S010MainMenuController>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -18,42 +18,42 @@ class S010MainMenuPage extends StatelessWidget {
           ListTile(
             title: const Text('Counter 1'),
             subtitle: const Text('Signals, shared state'),
-            onTap: state.onTapMenuItem1,
+            onTap: controller.onTapMenuItem1,
           ),
           ListTile(
             title: const Text('Counter 2'),
             subtitle: const Text('Signals, shared state'),
-            onTap: state.onTapMenuItem2,
+            onTap: controller.onTapMenuItem2,
           ),
           ListTile(
             title: const Text('Counter 3'),
             subtitle: const Text('Signals, local state'),
-            onTap: state.onTapMenuItem3,
+            onTap: controller.onTapMenuItem3,
           ),
           ListTile(
             title: const Text('Counter 4'),
             subtitle: const Text('Signals, multiple local states'),
-            onTap: state.onTapMenuItem4,
+            onTap: controller.onTapMenuItem4,
           ),
           ListTile(
             title: const Text('Counter 5'),
             subtitle: const Text('ChangeNotifier, 1 notifier for more states'),
-            onTap: state.onTapMenuItem5,
+            onTap: controller.onTapMenuItem5,
           ),
           ListTile(
             title: const Text('Counter 6'),
             subtitle: const Text('ChangeNotifiers, each state a notifier V1'),
-            onTap: state.onTapMenuItem6,
+            onTap: controller.onTapMenuItem6,
           ),
           ListTile(
             title: const Text('Counter 7'),
             subtitle: const Text('ChangeNotifiers, each state a notifier V2'),
-            onTap: state.onTapMenuItem7,
+            onTap: controller.onTapMenuItem7,
           ),
           ListTile(
             title: const Text('Counter 8'),
             subtitle: const Text('ValueNotifiers, each state a notifier'),
-            onTap: state.onTapMenuItem8,
+            onTap: controller.onTapMenuItem8,
           ),
         ],
       ),
