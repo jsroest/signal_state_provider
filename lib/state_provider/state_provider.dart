@@ -22,13 +22,11 @@ class StateProvider<T> extends SingleChildStatefulWidget {
 }
 
 class _StateProviderState<T> extends SingleChildState<StateProvider> {
-  /// The state object created by the [StateProvider].
   late final T _state;
 
   @override
   void initState() {
     super.initState();
-// Create the initial state object using the provided create function.
     _state = widget.create(context);
   }
 
@@ -49,10 +47,6 @@ class _StateProviderState<T> extends SingleChildState<StateProvider> {
   }
 }
 
-/// An [InheritedWidget] that provides access to the state object.
-///
-/// This widget is used internally by [StateProvider] to make the state object
-/// accessible throughout the widget tree using [StateProvider.of<T>].
 class _StateInheritedWidget<T> extends InheritedWidget {
   const _StateInheritedWidget({
     super.key,
@@ -60,11 +54,8 @@ class _StateInheritedWidget<T> extends InheritedWidget {
     required super.child,
   });
 
-  /// The state object created by [StateProvider].
   final T state;
 
-  /// No need to notify children when the state object changes, as
-  /// this is handled by the classes in the Signals package.
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;
 }
