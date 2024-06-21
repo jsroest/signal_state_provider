@@ -3,8 +3,8 @@ import 'package:poc/pages/s030_local_counter/s030_counter_controller.dart';
 import 'package:poc/state_provider/state_provider.dart';
 import 'package:signals/signals_flutter.dart';
 
-class S030CounterPageLocal extends StatelessWidget {
-  const S030CounterPageLocal({super.key});
+class S030CounterPage extends StatelessWidget {
+  const S030CounterPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_1_page.dart';
-import 'package:poc/pages/s020_shared_counter/s025_counter_2/s025_counter_2_page.dart';
+import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_page.dart';
+import 'package:poc/pages/s020_shared_counter/s025_counter_2/s025_counter_page.dart';
 import 'package:poc/pages/s030_local_counter/s030_counter_page.dart';
 import 'package:poc/pages/s040_multi_counter/s040_multi_counter_page.dart';
 import 'package:poc/pages/s050_change_notifier_counter/s050_change_notifier_counter_page.dart';
@@ -16,19 +16,19 @@ class S010MainMenuController {
 
   void onTapMenuItem1() {
     _navigatorService.navigator.push(
-      MaterialPageRoute(builder: (_) => const S020Counter1PageShared()),
+      MaterialPageRoute(builder: (_) => const S020CounterPage()),
     );
   }
 
   void onTapMenuItem2() {
     _navigatorService.navigator.push(
-      MaterialPageRoute(builder: (_) => const S025Counter2PageShared()),
+      MaterialPageRoute(builder: (_) => const S025CounterPage()),
     );
   }
 
   void onTapMenuItem3() {
     _navigatorService.navigator.push(
-      MaterialPageRoute(builder: (_) => const S030CounterPageLocal()),
+      MaterialPageRoute(builder: (_) => const S030CounterPage()),
     );
   }
 
