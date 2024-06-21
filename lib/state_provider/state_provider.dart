@@ -1,16 +1,15 @@
 import 'package:flutter/widgets.dart';
 import 'package:poc/state_provider/disposable.dart';
+import 'package:poc/state_provider/nested.dart';
 
-class StateProvider<T> extends StatefulWidget {
+class StateProvider<T> extends SingleChildStatefulWidget {
   const StateProvider(
     this.create, {
     super.key,
-    required this.child,
+    super.child,
   });
 
   final T Function(BuildContext context) create;
-
-  final Widget child;
 
   static T of<T>(BuildContext context) {
     return context
@@ -22,7 +21,7 @@ class StateProvider<T> extends StatefulWidget {
   State<StateProvider> createState() => _StateProviderState<T>();
 }
 
-class _StateProviderState<T> extends State<StateProvider> {
+class _StateProviderState<T> extends SingleChildState<StateProvider> {
   /// The state object created by the [StateProvider].
   late final T _state;
 
@@ -42,10 +41,10 @@ class _StateProviderState<T> extends State<StateProvider> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildWithChild(BuildContext context, Widget? child) {
     return _StateInheritedWidget<T>(
       state: _state,
-      child: widget.child,
+      child: child!,
     );
   }
 }
