@@ -8,13 +8,6 @@ import 'package:poc/pages/s060_change_notifiers_counter/s060_change_notifiers_co
 import 'package:poc/pages/s070_property_builder_counter/s070_property_builder_counter_page.dart';
 import 'package:poc/pages/s080_watch_counter/s080_watch_counter_page.dart';
 
-// import 'package:poc/pages/s030_local_counter/s030_counter_page.dart';
-// import 'package:poc/pages/s040_multi_counter/s040_multi_counter_page.dart';
-// import 'package:poc/pages/s050_change_notifier_counter/s050_change_notifier_counter_page.dart';
-// import 'package:poc/pages/s060_change_notifiers_counter/s060_change_notifiers_counter_page.dart';
-// import 'package:poc/pages/s070_property_builder_counter/s070_property_builder_counter_page.dart';
-// import 'package:poc/pages/s080_watch_counter/s080_watch_counter_page.dart';
-
 class S010MainMenuController {
   S010MainMenuController(this.getNavigator);
 
