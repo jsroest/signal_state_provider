@@ -13,7 +13,7 @@ class S025Counter2PageShared extends StatelessWidget {
       (context) => S025Counter2Controller(
         StateProvider.of<SharedCounterState>(context),
       ),
-      builder: (context, data) {
+      child: Builder(builder: (context) {
         final state = StateProvider.of<S025Counter2Controller>(context);
         return Scaffold(
           appBar: AppBar(
@@ -42,7 +42,7 @@ class S025Counter2PageShared extends StatelessWidget {
             child: const Icon(Icons.add),
           ),
         );
-      },
+      }),
     );
   }
 }

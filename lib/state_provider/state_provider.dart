@@ -1,75 +1,23 @@
 import 'package:flutter/widgets.dart';
 import 'package:poc/state_provider/disposable.dart';
-import 'package:poc/state_provider/state_builder.dart';
 
-/// A widget for storing state.
-///
-/// The primary purpose of this widget is to provide a convenient way to store
-/// and access state objects, such as Signals and Effects from the Signals
-/// package, within a Flutter app.
-///
-/// Example usage:
-///
-/// ```dart
-/// StateProvider<MyStateClass>(
-///   create: () => MyStateClass(),
-///   builder: (context) {
-///     // Access state object using StateProvider.of<MyStateClass>(context)
-///     final state = StateProvider.of<MyStateClass>(context);
-///     return ...
-///   },
-/// )
-/// ```
 class StateProvider<T> extends StatefulWidget {
   const StateProvider(
     this.create, {
     super.key,
-    this.builder,
+    required this.child,
   });
 
-  /// Create a new StateProvider
-  ///
-  /// Create a new StateProvider based on this StateProvider, but with the
-  /// provided builder. This is used by the MultiStateProvider to create a
-  /// nested list of providers based on StateProviders with no builders
-  /// specified.
-  StateProvider<T> createNewWith({
-    required StateBuilderCallBack builder,
-  }) =>
-      StateProvider<T>(
-        create,
-        builder: builder,
-      );
-
-  /// Creates a state object.
-  ///
-  /// This function is called once during the lifecycle of the [StateProvider] to
-  /// create the initial state object.
   final T Function(BuildContext context) create;
 
-  /// Builds the child widgets using the state object.
-  ///
-  /// The [StateProvider] will be accessible in the context used by this builder.
-  /// See [Builder] for more details.
-  final StateBuilderCallBack? builder;
+  final Widget child;
 
-  /// Retrieves the state object from the current context.
-  ///
-  /// Use this method to access the state object created by the [StateProvider]
-  /// from anywhere in the widget tree.
-  ///
-  /// Example:
-  ///
-  /// ```dart
-  /// final state = StateProvider.of<MyStateClass>(context);
-  /// ```
   static T of<T>(BuildContext context) {
     return context
         .getInheritedWidgetOfExactType<_StateInheritedWidget<T>>()!
         .state;
   }
 
-// Default createState method that every StatefulWidget needs
   @override
   State<StateProvider> createState() => _StateProviderState<T>();
 }
@@ -97,10 +45,7 @@ class _StateProviderState<T> extends State<StateProvider> {
   Widget build(BuildContext context) {
     return _StateInheritedWidget<T>(
       state: _state,
-      child: StateBuilder(
-        data: _state,
-        builder: widget.builder!,
-      ),
+      child: widget.child,
     );
   }
 }

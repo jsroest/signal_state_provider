@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateProvider<SharedCounterState>(
       (context) => SharedCounterState(),
-      builder: (context, data) => StateProvider(
+      child: StateProvider(
         (context) => S010MainMenuController(getNavigator),
-        builder: (context, data) => MaterialApp(
+        child: MaterialApp(
           navigatorKey: navigatorKey,
           title: 'Flutter Demo',
           theme: ThemeData(

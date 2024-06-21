@@ -10,10 +10,9 @@ class S020Counter1PageShared extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider(
-      (context) => S020Counter1Controller(
-        StateProvider.of<SharedCounterState>(context),
-      ),
-      builder: (context, data) {
+        (context) => S020Counter1Controller(
+            StateProvider.of<SharedCounterState>(context)), child: Builder(
+      builder: (context) {
         final state = StateProvider.of<S020Counter1Controller>(context);
         return Scaffold(
           appBar: AppBar(
@@ -43,6 +42,6 @@ class S020Counter1PageShared extends StatelessWidget {
           ),
         );
       },
-    );
+    ));
   }
 }
