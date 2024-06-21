@@ -32,7 +32,7 @@ class S010MainMenuPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('Counter 4'),
-            subtitle: const Text('Signals, multiple local states'),
+            subtitle: const Text('Signals, multiple states'),
             onTap: controller.onTapMenuItem4,
           ),
           ListTile(
