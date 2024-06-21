@@ -34,20 +34,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-//   return StateProvider<SharedCounterState>(
-//   (context) => SharedCounterState(),
-//   builder: (context) => StateProvider(
-//   (context) => S010MainMenuController(getNavigator),
-//   builder: (context) => MaterialApp(
-//   navigatorKey: navigatorKey,
-//   title: 'Flutter Demo',
-//   theme: ThemeData(
-//   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-//   useMaterial3: true,
-//   ),
-//   home: const S010MainMenuPage(),
-//   ),
-//   ),
-//   );
-// }
 }
