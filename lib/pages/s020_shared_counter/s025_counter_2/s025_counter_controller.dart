@@ -1,7 +1,7 @@
 import 'package:poc/pages/s020_shared_counter/shared_counter_state.dart';
 
-class S020Counter1Controller {
-  S020Counter1Controller(this.sharedCounterState);
+class S025CounterController {
+  S025CounterController(this.sharedCounterState);
 
   final SharedCounterState sharedCounterState;
 

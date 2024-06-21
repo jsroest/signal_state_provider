@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_1_controller.dart';
+import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_controller.dart';
 import 'package:poc/state_provider/state_provider.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -8,7 +8,7 @@ class S020CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = StateProvider.of<S020Counter1Controller>(context);
+    final state = StateProvider.of<S020CounterController>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,

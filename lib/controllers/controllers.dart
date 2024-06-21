@@ -1,6 +1,6 @@
 import 'package:poc/pages/s010_main_menu/s010_main_menu_controller.dart';
-import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_1_controller.dart';
-import 'package:poc/pages/s020_shared_counter/s025_counter_2/s025_counter_2_controller.dart';
+import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_controller.dart';
+import 'package:poc/pages/s020_shared_counter/s025_counter_2/s025_counter_controller.dart';
 import 'package:poc/pages/s020_shared_counter/shared_counter_state.dart';
 import 'package:poc/pages/s040_multi_counter/s040_multi_counter_controller.dart';
 import 'package:poc/pages/s050_change_notifier_counter/s050_change_notifier_counter_controller.dart';
@@ -19,12 +19,12 @@ List<SingleChildWidget> get controllers => [
         ),
       ),
       StateProvider(
-        (context) => S020Counter1Controller(
+        (context) => S020CounterController(
           StateProvider.of<SharedCounterState>(context),
         ),
       ),
       StateProvider(
-        (context) => S025Counter2Controller(
+        (context) => S025CounterController(
           StateProvider.of<SharedCounterState>(context),
         ),
       ),
