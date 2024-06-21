@@ -15,7 +15,7 @@ class S030CounterPageLocal extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            title: const Text('Counter 3 local counter'),
+            title: const Text('Counter 3'),
           ),
           body: Center(
             child: Column(

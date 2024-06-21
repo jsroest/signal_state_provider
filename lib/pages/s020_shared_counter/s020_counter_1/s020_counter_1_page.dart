@@ -17,7 +17,7 @@ class S020Counter1PageShared extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            title: const Text('Counter 1 shared counter'),
+            title: const Text('Counter 1'),
           ),
           body: Center(
             child: Column(

@@ -16,7 +16,7 @@ class S050ChangeNotifierCounterPage extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-              title: const Text('Counter 4 multi local counter'),
+              title: const Text('Counter 5'),
             ),
             body: Center(
               child: Column(
