@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:poc/pages/s020_shared_counter/s025_counter_2/s025_counter_2_controller.dart';
+import 'package:poc/pages/s020_shared_counter/s020_counter_1/s020_counter_1_controller.dart';
 import 'package:poc/state_provider/state_provider.dart';
 import 'package:signals/signals_flutter.dart';
 
-class S025Counter2Page extends StatelessWidget {
-  const S025Counter2Page({super.key});
+class S020CounterPage extends StatelessWidget {
+  const S020CounterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final state = StateProvider.of<S025Counter2Controller>(context);
+    final state = StateProvider.of<S020Counter1Controller>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Counter 2'),
+        title: const Text('Counter 1'),
       ),
       body: Center(
         child: Column(
